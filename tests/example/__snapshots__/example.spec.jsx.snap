@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example should render correctly with default props 1`] = `
+<div>
+  <span>
+    Example Label!
+  </span>
+</div>
+`;
+
+exports[`Example should render correctly with default props 2`] = `
+<div>
+  <span>
+    Another example label!
+  </span>
+</div>
+`;
