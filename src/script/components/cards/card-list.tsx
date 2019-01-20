@@ -22,17 +22,32 @@ export class CardList extends React.Component<{}, CardListState> {
             <div className="card-list">
                 <button onClick={ this.addCard }>Add</button>
                 {
-                    cards.map((props) => <Card { ...props } />)
+                    cards.map((props, i) => (
+                        <div>
+                            <button onClick={ () => this.removeCard(i) } >x</button>
+                            <Card { ...props } />
+                        </div>
+                    ))
                 }
             </div>
         )
     }
 
     addCard = () => {
+        const { cards } = this.state;
+
         this.setState({
             cards: this.state.cards.concat({
-                text: "New card"
+                text: `Card no. ${ cards.length }`
             })
         })
+    }
+
+    removeCard = (i: number) => {
+        const { cards } = this.state;
+
+        this.setState({
+            cards: cards.filter((card, index) => index !== i)
+        });
     }
 }

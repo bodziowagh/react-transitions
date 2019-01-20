@@ -1,8 +1,25 @@
+$animation-duration: 5000ms;
+
+@keyframes appear {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .card-list {
   display: flex;
+  flex-wrap: wrap;
 
   .card {
     width: 100px;
     min-height: 100px;
+    background-color: #0080ff;
+
+    &.card-appear {
+      animation: appear $animation-duration;
+    }
+
+    &.card-enter-done {
+      background-color: #0075f0;
+    }
   }
 }
