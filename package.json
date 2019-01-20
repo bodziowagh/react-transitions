@@ -15,6 +15,9 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-intl": "^2.3.15",
     "@types/react-intl-redux": "^0.1.11",
+    "@types/react-redux": "^7.0.0",
+    "@types/react-transition-group": "^2.0.15",
+    "@types/redux": "^3.6.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
@@ -43,13 +46,12 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "@types/react-redux": "^7.0.0",
-    "@types/redux": "^3.6.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-intl": "^2.8.0",
     "react-intl-redux": "^2.1.0",
     "react-redux": "^6.0.0",
+    "react-transition-group": "^2.5.3",
     "redux": "^4.0.1"
   },
   "scripts": {
