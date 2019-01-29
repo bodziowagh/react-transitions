@@ -8,6 +8,7 @@
     "interface-name": false,
     "jsx-curly-spacing": [true, "always"],
     "jsx-no-multiline-js": false,
+    "jsx-no-lambda": [ false ],
     "jsx-key": false,
     "max-line-length": [true, 140],
     "object-literal-key-quotes": false,

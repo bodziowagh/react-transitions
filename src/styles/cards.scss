@@ -1,25 +1,105 @@
-$animation-duration: 5000ms;
+$color-primary: #a84cff;
+$color-secondary: #ffd24c;
+
+$card-animation-duration: 1000ms;
 
 @keyframes appear {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
 
+@keyframes disappear {
+  0%   { opacity: 1; }
+  100% { opacity: 0; width: 0; margin: auto 0; }
+}
+
+$button-animation-duration: 150ms;
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(90deg); }
+}
+
 .card-list {
+  font-family: "Courier New";
+
   display: flex;
   flex-wrap: wrap;
 
+  & * {
+    margin: 10px;
+  }
+
+  .add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+
+    font-size: 32px;
+    cursor: pointer;
+
+    color: $color-primary;
+    background-color: $color-secondary;
+
+    &:after {
+      content: "+";
+    }
+
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+    }
+
+    &:active {
+      animation: rotate $button-animation-duration;
+    }
+  }
+
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    color: $color-primary;
+    background-color: $color-secondary;
+
+    text-align: center;
+
     width: 100px;
-    min-height: 100px;
-    background-color: #0080ff;
+    height: 100px;
+    overflow: hidden;
+
+    .remove-btn {
+      align-self: flex-end;
+      cursor: pointer;
+
+      &:after {
+        content: "x";
+      }
+
+      &:hover {
+        color: #111111;
+      }
+
+      &:active {
+        color: #ffaacc;
+      }
+    }
+
+    .content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
 
     &.card-appear {
-      animation: appear $animation-duration;
+      animation: appear $card-animation-duration;
     }
 
-    &.card-enter-done {
-      background-color: #0075f0;
+    &.card-exit {
+      animation: disappear $card-animation-duration;
     }
+
   }
 }

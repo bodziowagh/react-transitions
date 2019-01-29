@@ -18,15 +18,20 @@ export class CardList extends React.Component<{}, CardListState> {
     render() {
         const { cards } = this.state;
 
+        console.log(cards)
+
         return (
             <div className="card-list">
-                <button onClick={ this.addCard }>Add</button>
+                <div>
+                    <a className="add-btn" onClick={ this.addCard } />
+                </div>
                 {
                     cards.map((props, i) => (
-                        <div>
-                            <button onClick={ () => this.removeCard(i) } >x</button>
-                            <Card { ...props } />
-                        </div>
+                        <Card
+                            { ...props }
+                            onRemoveCallback={ this.removeCard(i) }
+                            onRequestRemove={ this.handleRemoveClick(i) }
+                        />
                     ))
                 }
             </div>
@@ -37,13 +42,24 @@ export class CardList extends React.Component<{}, CardListState> {
         const { cards } = this.state;
 
         this.setState({
-            cards: this.state.cards.concat({
-                text: `Card no. ${ cards.length }`
+            cards: cards.concat({
+                text: `Card no. ${ cards.length }`,
+                show: true
             })
         })
     }
 
-    removeCard = (i: number) => {
+    handleRemoveClick = (i: number) => () => {
+        const { cards } = this.state;
+
+        cards[i].show = false;
+
+        this.setState({
+            cards
+        });
+    }
+
+    removeCard = (i: number) => () => {
         const { cards } = this.state;
 
         this.setState({
